@@ -46,6 +46,10 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="wEe-mL-mkR"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="y03-pa-7sg"/>
+                                </connections>
                             </tableView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="daN-m2-S61">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>

@@ -26,15 +26,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         loadData()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        loadData()
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         if let frc = fetchController {
             return frc.sections!.count
         }
         return 1
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 70.00
     }
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -48,18 +48,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let sectionInfo = fetchController?.sections?[section] else {
-            return 1
-        }
-        return sectionInfo.numberOfObjects
+        return fetchController.sections?[section].numberOfObjects ?? 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "bookCell", for: indexPath) as! BookTableViewCell
         
-        let entity = fetchController?.object(at: indexPath)
+        let entity = fetchController.object(at: indexPath)
         
-        cell.bookTitle.text = entity?.title ?? "Add Book"
+        cell.bookTitle.text = entity.title ?? "Add Book"
         
         return cell
     }
@@ -74,19 +71,19 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             newBook.title = titleTextField.text
             newBook.author = authorTextField.text
             self.saveData()
+            self.loadData()
         }
         alert.addAction(action)
         alert.addTextField { (authTextField) in
             authTextField.placeholder = "New Author Name Here"
-            authTextField.text = authorTextField.text
+            authorTextField = authTextField
         }
         alert.addTextField { (bukTextField) in
             bukTextField.placeholder = "Book Title Here"
-            bukTextField.text = titleTextField.text
+            titleTextField = bukTextField
         }
         present(alert, animated: true, completion: nil)
         
-        loadData()
     }
     
     func saveData() {
@@ -100,7 +97,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func loadData() {
         let request = NSFetchRequest<Book>(entityName: "Book")
-        let sort = NSSortDescriptor(key: "author", ascending: true)
+        let sort = NSSortDescriptor(key: "title", ascending: true)
         request.sortDescriptors = [sort]
         fetchController = NSFetchedResultsController(fetchRequest: request, managedObjectContext: context, sectionNameKeyPath: "author", cacheName: nil)
         
