@@ -13,6 +13,7 @@
 		5C66333021F7EE34003630A5 /* FRC_App.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 5C66332E21F7EE34003630A5 /* FRC_App.xcdatamodeld */; };
 		5C66333221F7EE39003630A5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5C66333121F7EE39003630A5 /* Assets.xcassets */; };
 		5C66333521F7EE39003630A5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5C66333321F7EE39003630A5 /* LaunchScreen.storyboard */; };
+		5C66333D21F7F064003630A5 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5C66333C21F7F064003630A5 /* BookTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		5C66333121F7EE39003630A5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5C66333421F7EE39003630A5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5C66333621F7EE39003630A5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5C66333C21F7F064003630A5 /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			children = (
 				5C66332721F7EE34003630A5 /* AppDelegate.swift */,
 				5C66332921F7EE34003630A5 /* ViewController.swift */,
+				5C66333C21F7F064003630A5 /* BookTableViewCell.swift */,
 				5C66332B21F7EE34003630A5 /* Main.storyboard */,
 				5C66333121F7EE39003630A5 /* Assets.xcassets */,
 				5C66333321F7EE39003630A5 /* LaunchScreen.storyboard */,
@@ -138,6 +141,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5C66333D21F7F064003630A5 /* BookTableViewCell.swift in Sources */,
 				5C66332A21F7EE34003630A5 /* ViewController.swift in Sources */,
 				5C66333021F7EE34003630A5 /* FRC_App.xcdatamodeld in Sources */,
 				5C66332821F7EE34003630A5 /* AppDelegate.swift in Sources */,
